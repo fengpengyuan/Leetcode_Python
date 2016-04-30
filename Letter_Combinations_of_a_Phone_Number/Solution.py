@@ -22,5 +22,18 @@ class Solution(object):
         for i in range(len(s)):
             self.dfs(digits, dic, sol + s[i], res, cur + 1)
 
+    def letterCombinations2(self, digits):
+        if not digits:
+            return []
+        dic = ["", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wzyx"]
+        res = ['']
+        for digit in digits:
+            tem = []
+            for d in dic[int(digit)]:
+                for cur in res:
+                    tem.append(cur + d)
+            res = tem
+        return res
 
-print(Solution().letterCombinations("345"))
+
+print(Solution().letterCombinations2("345"))
