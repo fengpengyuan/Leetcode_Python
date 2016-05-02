@@ -7,10 +7,11 @@ class Solution(object):
         for i in range(len(digits) - 1, -1, -1):
             s = digits[i] + carry
             carry = s / 10
+            digits[i] = s % 10
         return [1] + digits if carry == 1 else digits
 
 
-digits = [1, 2, 5]
-# Solution().plusOne(digits)
+digits = [0]
+print Solution().plusOne(digits)
 
 print(digits.append(3))

@@ -20,4 +20,4 @@ class Solution(object):
         curSum += root.val
         if root.left is None and root.right is None and curSum == sum:
             return True
-        return self.pathSum(root.left, curSum, sum) or self.pathSum(root.right, curSum, sum)
+        return self.pathSumUtil(root.left, curSum, sum) or self.pathSumUtil(root.right, curSum, sum)

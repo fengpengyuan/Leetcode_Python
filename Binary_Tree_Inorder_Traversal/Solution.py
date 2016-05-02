@@ -26,6 +26,17 @@ class Solution(object):
                     top = top.left
         return res
 
+    def inorderTraversal(self, root):
+        res, stk, cur = [], [], root
+        while cur or stk:
+            while cur:
+                stk.append(cur)
+                cur = cur.left
+            cur = stk.pop()
+            res.append(cur.val)
+            cur = cur.right
+        return res
+
 
 s = [1, 2, 3, 0]
 print(s)

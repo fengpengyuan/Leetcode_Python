@@ -14,9 +14,9 @@ class Solution(object):
         s, m = sys.maxint, sys.maxint
 
         for num in nums:
-            if num < s:
+            if num <= s:
                 s = num
-            elif num < m:
+            elif num <= m:
                 m = num
             else:
                 return True
