@@ -18,7 +18,7 @@ class Solution(object):
                 dic[num] = 0
             dic[num] += 1
 
-        for key, val in dic.iteritems():
+        for key, val in dic.items():
             if len(heap) < k:
                 heapq.heappush(heap, (val, key))
             else:
