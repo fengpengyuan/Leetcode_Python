@@ -8,7 +8,7 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        dp = [[1 for i in range(n)] for j in range(m)]
+        dp = [[1 for i in xrange(n)] for j in xrange(m)]
 
         for i in xrange(1, m):
             for j in xrange(1, n):
