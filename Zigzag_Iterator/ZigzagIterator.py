@@ -59,6 +59,37 @@ class ZigzagIterator(object):
         """
         return len(self.v1) + len(self.v2) > 0
 
+    ##########################
+    # solution 3
+    # there is no hasnext method for iterator in python, it stops by raising a exception
+    # def __init__(self, v1, v2):
+    #     """
+    #     Initialize your data structure here.
+    #     :type v1: List[int]
+    #     :type v2: List[int]
+    #     """
+    #     self.it = []
+    #     if v1:
+    #         self.it.append(iter(v1))
+    #     if v2:
+    #         self.it.append(iter(v2))
+    #
+    # def next(self):
+    #     """
+    #     :rtype: int
+    #     """
+    #     v = self.it.pop(0)
+    #     res = v.next()
+    #     if v.hasNext():
+    #         self.it.append(v)
+    #     return res
+    #
+    # def hasNext(self):
+    #     """
+    #     :rtype: bool
+    #     """
+    #     return len(self.it) != 0
+
 # Your ZigzagIterator object will be instantiated and called as such:
 v1 = [1, 2, 3]
 v2 = [4, 5, 6]
