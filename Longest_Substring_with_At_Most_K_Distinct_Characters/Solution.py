@@ -32,7 +32,6 @@ class Solution:
 
     def lengthOfLongestSubstringKDistinct2(self, s, k):
         j, numDic, res, map = 0, 0, 0, {}
-        start = 0
         for i in xrange(len(s)):
             while j < len(s):
                 if s[j] in map:
