@@ -27,23 +27,23 @@ class Solution(object):
 
 
     # solution 2
-    def longestConsecutive(self, root):
-        if not root:
-            return 0
-        max = [0]
-        self.dfs(None, root, 1, max)
-        return max[0]
-
-    def dfs(self, parent, root, count, m):
-        if not root:
-            return
-        if not parent or parent.val - root.val != 1:
-            count = 1
-        else:
-            count += 1
-        m[0] = max(m[0], count)
-        self.dfs(root, root.left, count, m)
-        self.dfs(root, root.right, count, m)
+    # def longestConsecutive(self, root):
+    #     if not root:
+    #         return 0
+    #     max = [0]
+    #     self.dfs(None, root, 1, max)
+    #     return max[0]
+    #
+    # def dfs(self, parent, root, count, m):
+    #     if not root:
+    #         return
+    #     if not parent or parent.val - root.val != 1:
+    #         count = 1
+    #     else:
+    #         count += 1
+    #     m[0] = max(m[0], count)
+    #     self.dfs(root, root.left, count, m)
+    #     self.dfs(root, root.right, count, m)
 
 
 root = TreeNode(6)
