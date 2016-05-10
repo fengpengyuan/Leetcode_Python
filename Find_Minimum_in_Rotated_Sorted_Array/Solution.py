@@ -32,6 +32,23 @@ class Solution(object):
                 i = m + 1
         return nums[i]
 
+    def findMin(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        start, end = 0, len(nums) - 1
+
+        while start < end:
+            if nums[start] < nums[end]:
+                return nums[start]
+            m = (start + end) / 2
+            if nums[m] >= nums[start]:
+                start = m + 1
+            else:
+                end = m
+        return nums[start]
+
 
 nums = [3, 4, 5, 1, 2]
 

@@ -13,7 +13,7 @@ class Solution(object):
             mid = (i + j) / 2
             if nums[mid] == target:
                 return mid
-            elif nums[mid] > nums[i]:
+            elif nums[mid] >= nums[i]:
                 if nums[i] <= target < nums[mid]:
                     j = mid - 1
                 else:
