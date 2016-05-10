@@ -2,21 +2,21 @@ __author__ = 'fengpeng'
 
 
 class Solution(object):
-    # def generate(self, numRows):
-    # """
-    #     :type numRows: int
-    #     :rtype: List[List[int]]
-    #     """
-    #     if numRows < 1:
-    #         return []
-    #     res = [[1 for j in xrange(i)] for i in xrange(1, numRows+1)]
-    #     for i in xrange(1, numRows):
-    #         for j in xrange(1, i + 1):
-    #             if j == 0 or j == i:
-    #                 res[i][j] = 1
-    #             else:
-    #                 res[i][j] = res[i - 1][j - 1] + res[i - 1][j]
-    #     return res
+    def generate(self, numRows):
+        """
+        :type numRows: int
+        :rtype: List[List[int]]
+        """
+        if numRows < 1:
+            return []
+        res = [[1 for j in xrange(i)] for i in xrange(1, numRows+1)]
+        for i in xrange(1, numRows):
+            for j in xrange(1, i + 1):
+                if j == 0 or j == i:
+                    res[i][j] = 1
+                else:
+                    res[i][j] = res[i - 1][j - 1] + res[i - 1][j]
+        return res
 
     def generate2(self, numRows):
         """
