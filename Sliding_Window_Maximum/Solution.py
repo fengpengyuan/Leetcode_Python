@@ -46,7 +46,6 @@ class Solution(object):
                 res.append(nums[dq[0]])
         return res
 
-
     def maxSlidingWindow3(self, nums, k):
         """
         :type nums: List[int]
@@ -67,11 +66,29 @@ class Solution(object):
         res.append(-heap[0][0])
         return res
 
+    def maxSlidingWindow4(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        dq, res = collections.deque(), []
+        for i, num in enumerate(nums):
+            while dq and dq[-1] < num:
+                dq.popleft()
+            dq.append(num)
+            if i >= k and dq[0] == nums[i - k]:
+                dq.popleft()
+            if i >= k - 1:
+                res.append(dq[0])
+        return res
+
 
 nums = [1, 3, -1, -3, 5, 3, 6, 7]
 nums2 = [1, 3, -1, -3, 5, 3, 6, 7]
 print Solution().maxSlidingWindow2(nums, 4)
-print Solution().maxSlidingWindow3(nums2, 1)
+print Solution().maxSlidingWindow3(nums2, 4)
+print Solution().maxSlidingWindow4(nums2, 4)
 
 
 
