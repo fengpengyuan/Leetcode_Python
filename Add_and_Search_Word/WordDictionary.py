@@ -30,7 +30,6 @@ class WordDictionary(object):
             node = child
         node.isLeaf = True
 
-
     def search(self, word):
         """
         Returns if the word is in the data structure. A word could
@@ -59,6 +58,32 @@ class WordDictionary(object):
             if child is None:
                 return False
             return self.searchUtil(child, word, cur + 1)
+
+
+    #  solution  2
+    def search(self, word):
+        """
+        Returns if the word is in the data structure. A word could
+        contain the dot character '.' to represent any one letter.
+        :type word: str
+        :rtype: bool
+        """
+        return self.searchUtil(self.root, word)
+
+    def searchUtil(self, node, word):
+        if word=='':
+            return node.isLeaf
+        c = word[0]
+        if c == '.':
+            for x in node.children:
+                res = self.searchUtil(node.children[x], word[1:])
+                if res:
+                    return True
+        else:
+            child = node.children.get(c)
+            if child:
+                return self.searchUtil(child, word[1:])
+        return False
 
 
 # Your WordDictionary object will be instantiated and called as such:
