@@ -11,7 +11,7 @@ class Solution(object):
 
         for i in xrange(len(words) - 1):
             mask1 = self.getMask(words[i])
-            for j in xrange(i+1, len(words)):
+            for j in xrange(i + 1, len(words)):
                 mask2 = self.getMask(words[j])
                 if not (mask1 & mask2):
                     return len(words[i]) * len(words[j])
@@ -23,6 +23,26 @@ class Solution(object):
         for c in word:
             mask |= (1 << (ord(c) - ord('a')))
         return mask
+
+
+    def maxProduct(self, words):
+        """
+        :type words: List[str]
+        :rtype: int
+        """
+        n = len(words)
+        masks = [0] * n
+
+        for i in xrange(n):
+            for c in words[i]:
+                masks[i] |= 1 << (ord(c) - ord('a'))
+
+        res = 0
+        for i in xrange(n):
+            for j in xrange(i+1, n):
+                if not (masks[i]&masks[j]):
+                    res = max(res, len(words[i])*len(words[j]))
+        return res
 
 
 words = ["a", "aa", "ab", "abcd", "xy"]
