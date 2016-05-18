@@ -51,7 +51,7 @@ class Solution(object):
         res, i = "", 0
         while num > 0:
             if num % 1000 != 0:
-                res = self.convert(num % 1000) + self.THOUSANDS[i] + " " + res
+                res = " ".join((self.convert(num % 1000) + self.THOUSANDS[i], res))
             num /= 1000
             i += 1
         return res.strip()
