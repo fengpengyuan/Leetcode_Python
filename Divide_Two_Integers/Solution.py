@@ -27,4 +27,27 @@ class Solution(object):
         return res if res < INT_MAX else INT_MAX
 
 
-print Solution().divide(-1, -1)
+    def divide2(self, dividend, divisor):
+        """
+        :type dividend: int
+        :type divisor: int
+        :rtype: int
+        """
+        INT_MAX = 2147483647
+        neg = (dividend < 0) ^ (divisor < 0)
+        a, b = abs(dividend), abs(divisor)
+        res, shift = 0, 31
+
+        while shift >= 0:
+            while a >= b << shift:
+                a -= b << shift
+                res += 1 << shift
+            shift -= 1
+        if neg:
+            res = -res
+        if res > INT_MAX:
+            return INT_MAX
+        return res
+
+
+print Solution().divide2(-1, -1)
