@@ -17,13 +17,13 @@ class Solution(object):
             return
         fast, slow = head, head
         # while fast and fast.next:
-        #     fast = fast.next.next
+        # fast = fast.next.next
         #     if not fast:
         #         break
         #     slow = slow.next
         while fast and fast.next:
-            slow=slow.next
-            fast=fast.next.next
+            slow = slow.next
+            fast = fast.next.next
         secondHalf = slow.next
         slow.next = None
 
@@ -60,9 +60,8 @@ head.next.next.next.next = ListNode(5)
 head.next.next.next.next.next = ListNode(6)
 head.next.next.next.next.next.next = ListNode(7)
 
-
 Solution().reorderList(head)
 
 while head:
     print head.val,
-    head=head.next
+    head = head.next
