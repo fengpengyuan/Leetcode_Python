@@ -79,6 +79,33 @@ class Solution(object):
         root.right = self.sortedListToBST(slow.next)
         return root
 
+    node = None
+
+    def sortedListToBST(self, head):
+        """
+        :type head: ListNode
+        :rtype: TreeNode
+        """
+        n =self.getLength(head)
+        self.node = head
+
+        return self.listToBST(0, n-1)
+
+    def listToBST(self, start, end):
+        if start > end:
+            return  None
+
+        m = (start+end)/2
+        left=self.listToBST(start, m-1)
+        root = TreeNode(self.node.val)
+        root.left = left
+        self.node = self.node.next
+
+        root.right = self.listToBST(m+1, end)
+        return root
+
+
+
 
 head = ListNode(1)
 head.next = ListNode(2)
