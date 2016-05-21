@@ -15,7 +15,7 @@ class Solution(object):
         :rtype: UndirectedGraphNode
         """
         if not node:
-            return
+            return None
         d = {}
         copy = UndirectedGraphNode(node.label)
         d[node] = copy
@@ -33,3 +33,30 @@ class Solution(object):
                 else:
                     d[cur].neighbors.append(d[neighbor])
         return copy
+
+
+    def cloneGraph(self, node):
+        """
+        :type node: UndirectedGraphNode
+        :rtype: UndirectedGraphNode
+        """
+        if not node:
+            return None
+        dict = {}
+        copy = UndirectedGraphNode(node.label)
+        dict[node] = copy
+        self.dfs(node, dict)
+        return copy
+
+    def dfs(self, node, dict):
+        if not node:
+            return
+        neighbors = node.neighbors
+        for neighbor in neighbors:
+            if neighbor not in dict:
+                clone = UndirectedGraphNode(neighbor.label)
+                dict[neighbor] = clone
+                dict[node].neighbors.append(clone)
+                self.dfs(neighbor, dict)
+            else:
+                dict[node].neighbors.append(dict[neighbor])
