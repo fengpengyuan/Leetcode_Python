@@ -17,9 +17,11 @@ class Solution(object):
             res.append(sol)
             return
         for i in xrange(pos, len(nums)):
+            if i!=pos and nums[pos]=='0':
+                break
             s = "".join(nums[pos:i + 1])
-            if len(s) > 1 and s[0] == '0':
-                return
+            # if len(s) > 1 and s[0] == '0':
+            #     return
             num = int(s)
             if pos == 0:
                 self.dfs(nums, target, res, str(num), i + 1, num, num)
@@ -29,4 +31,4 @@ class Solution(object):
                 self.dfs(nums, target, res, sol + "*" + str(num), i + 1, cur - pre + pre * num, pre * num)
 
 
-print Solution().addOperators("1105", 5)
+print Solution().addOperators("105", 5)
