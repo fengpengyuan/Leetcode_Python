@@ -46,6 +46,24 @@ class Solution(object):
             q5.append(minV * 5)
         return minV
 
+    def nthUglyNumber3(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        dp = [0] * n
+        dp[0] = 1
+        i2, i3, i5 = 0, 0, 0
+        for i in xrange(1, n):
+            dp[i] = min(2 * dp[i2], 3 * dp[i3], 5 * dp[i5])
+            if dp[i] == 2 * dp[i2]:
+                i2 += 1
+            if dp[i] == 3 * dp[i3]:
+                i3 += 1
+            if dp[i] == 5 * dp[i5]:
+                i5 += 1
+        return dp[n - 1]
+
 
 n = 6
-print Solution().nthUglyNumber2(9)
+print Solution().nthUglyNumber3(9)
