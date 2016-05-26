@@ -55,4 +55,4 @@ class Solution(object):
                 curA = headB
             if not curB:
                 curB = headA
-        return None
+        return curA
