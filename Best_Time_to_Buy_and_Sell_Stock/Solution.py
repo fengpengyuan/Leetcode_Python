@@ -20,6 +20,7 @@ class Solution(object):
 
         return res
 
+    # return the dates
     def maxProfit2(self, prices):
         """
         :type prices: List[int]
