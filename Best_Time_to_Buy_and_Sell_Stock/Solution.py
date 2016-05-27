@@ -44,5 +44,5 @@ class Solution(object):
 
         return res
 
-prices=[12, 13, 10, 6, 4, 18, 1]
+prices=[ 7, 9, 5, 6, 3, 2 ]
 print Solution().maxProfit2(prices)
