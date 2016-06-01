@@ -46,7 +46,7 @@ class Solution(object):
         :rtype: float
         """
         m, n = len(nums1), len(nums2)
-        if m>n:
+        if m > n:
             nums1, nums2, m, n = nums2, nums1, n, m
         imin, imax, halfLen = 0, m, (m + n + 1) / 2
 
