@@ -21,7 +21,19 @@ class Solution(object):
             mask += str((ord(st[i]) - ord(st[i - 1]) + 26) % 26)
         return mask
 
+    def groupStrings2(self, strings):
+        """
+        :type strings: List[str]
+        :rtype: List[List[str]]
+        """
+        d = collections.defaultdict(list)
+        for s in strings:
+            mask = tuple([(ord(c) - ord(s[0])) % 26 for c in s])
+            d[mask].append(s)
+        return map(sorted, d.values())
 
-strings = ["abc", "bcd", "acef", "xyz", "az", "ba", "a", "z"]
+
+strings = ["xyz", "abc", "bcd", "acef", "az", "ba", "a", "z"]
 
 print Solution().groupStrings(strings)
+print Solution().groupStrings2(strings)
